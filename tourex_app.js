@@ -46,7 +46,7 @@ const ACT_WISH =
 
 const ACT_HIDDEN =
   ACT_BASE +
-  " invisible translate-x-3 opacity-0 group-hover/c:visible group-hover/c:translate-x-0 group-hover/c:opacity-100";
+  " invisible translate-x-3 opacity-0 group-hover/c:visible group-hover/c:translate-x-0 group-hover/c:opacity-100 group-data-[show=true]/c:visible group-data-[show=true]/c:translate-x-0 group-data-[show=true]/c:opacity-100";
 
 const CAT_LI =
   "flex cursor-pointer justify-between border-b border-[#e6e6e6] pb-2.5 pt-[11px] text-[15px] text-body transition-colors duration-300 last:border-b-0 hover:text-primary focus-visible:outline focus-visible:outline-1 focus-visible:outline-dashed focus-visible:outline-primary";
@@ -193,7 +193,7 @@ function createCard(product, isList) {
     <div
       class="product-card group/c min-w-0 bg-transparent ${
         isList
-          ? "flex flex-col gap-5 md:flex-row md:items-center md:gap-[30px]"
+          ? "flex flex-col gap-5 md:flex-row md:items-center md:gap-[30px] xl:gap-[40px]"
           : ""
       }"
       data-id="${product.id}"
@@ -202,14 +202,16 @@ function createCard(product, isList) {
 
       <div
         class="product-img relative h-[270px] w-full overflow-hidden rounded-[15px] bg-[#f6f6f8] ${
-          isList ? "md:w-[270px] md:shrink-0" : ""
+          isList ? "md:w-[50%] xl:w-[60%]" : ""
         }"
       >
 
         <img
           src="${product.image}"
           alt="${product.title}"
-          class="block h-[270px] w-full max-w-full rounded-[15px] transition-all duration-300 ease-out group-hover/c:scale-105 group-data-[show=true]/c:scale-105"
+          class="block h-[270px] w-full max-w-full rounded-[15px] transition-transform duration-500 ease-out group-hover/c:scale-105 group-data-[show=true]/c:scale-105 cursor-pointer  ${
+            isList ? "xl:w-[60%] xl:ml-[110px] xl:shrink-0" : ""
+          }"
         />
 
         <div
@@ -287,7 +289,7 @@ function createCard(product, isList) {
       </div>
 
       <div
-        class="pb-0.5 pt-[14px] ${isList ? "md:p-0" : ""}"
+        class="pb-0.5 pt-[14px] ${isList ? "md:p-0 xl:shrink-0" : ""}"
       >
 
         <h4
@@ -300,13 +302,13 @@ function createCard(product, isList) {
           class="mb-1 flex h-[26px] flex-nowrap items-center whitespace-nowrap"
         >
           <div
-            class="relative ml-[9px] flex flex-none pt-[4px]"
+            class="relative ml-[9px] flex flex-none pt-[3px]"
           >
             ${createStars(product.rating)}
           </div>
 
           <span
-            class="relative -top-px ml-[3px] flex-none pt-[1px] text-sm leading-[26px] text-body"
+            class="relative -top-px ml-[3px] mt-[1px] flex-none pt-[1px] text-sm leading-[26px] text-body"
           >
             (${product.review})
           </span>
@@ -316,7 +318,7 @@ function createCard(product, isList) {
           class="relative flex h-[26px] items-center whitespace-nowrap leading-[26px]"
         >
           <span
-            class="flex-none text-[18px] font-semibold leading-[26px] text-primary"
+            class="flex-none text-[18px] font-semibold leading-[26px] text-primary mt-[-1px]"
           >
             $${Number(product.price).toFixed(2)}
           </span>
