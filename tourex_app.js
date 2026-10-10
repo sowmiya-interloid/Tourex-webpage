@@ -144,7 +144,7 @@ searchInput.addEventListener("input", () => {
     currentPage = 1;
 
     displayProducts();
-  }, 2000);
+  }, 1000);
 });
 
 const STAR = `
@@ -202,17 +202,17 @@ function createCard(product, isList) {
 
       <div
         class="product-img relative h-[270px] w-full overflow-hidden rounded-[15px] bg-[#f6f6f8] ${
-          isList ? "md:w-[50%] xl:w-[60%]" : ""
+          isList ? "md:w-[50%] xl:w-[50%]" : ""
         }"
       >
 
-        <img
-          src="${product.image}"
-          alt="${product.title}"
-          class="block h-[270px] w-full max-w-full rounded-[15px] transition-transform duration-500 ease-out group-hover/c:scale-105 group-data-[show=true]/c:scale-105 cursor-pointer  ${
-            isList ? "xl:w-[60%] xl:ml-[110px] xl:shrink-0" : ""
-          }"
-        />
+      <img
+        src="${product.image}"
+        alt="${product.title}"
+        class="block h-[270px] w-full max-w-full rounded-[15px] object-contain transition-transform duration-500 ease-out group-hover/c:scale-105 group-data-[show=true]/c:scale-105 cursor-pointer ${
+          isList ? "xl:w-[60%] xl:ml-[80px] xl:shrink-0" : ""
+        }"
+      />
 
         <div
           class="absolute right-[15px] top-[13px] flex flex-col gap-[6px]"
@@ -347,11 +347,17 @@ productGrid.addEventListener("click", (event) => {
 
   if (!button) {
     const tapped = event.target.closest("[data-id]");
+    const isTouch = event.pointerType === "touch";
+
+    if (!isTouch) {
+      productGrid.querySelectorAll('[data-show="true"]').forEach((c) => {
+        c.dataset.show = "false";
+      });
+      return;
+    }
 
     productGrid.querySelectorAll('[data-show="true"]').forEach((c) => {
-      if (c !== tapped) {
-        c.dataset.show = "false";
-      }
+      if (c !== tapped) c.dataset.show = "false";
     });
 
     if (tapped && event.target.closest(".product-img")) {
@@ -360,6 +366,26 @@ productGrid.addEventListener("click", (event) => {
 
     return;
   }
+
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".product-img")) return;
+
+    productGrid.querySelectorAll('[data-show="true"]').forEach((c) => {
+      c.dataset.show = "false";
+    });
+  });
+
+  productGrid.addEventListener("pointerout", (event) => {
+    if (event.pointerType !== "mouse") return;
+
+    const card = event.target.closest("[data-id]");
+    if (!card) return;
+
+    // cursor innum andha card kulla thaan irukka? appo vitrunga
+    if (card.contains(event.relatedTarget)) return;
+
+    card.dataset.show = "false";
+  });
 
   const card = button.closest("[data-id]");
   const id = Number(card.dataset.id);
