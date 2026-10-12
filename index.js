@@ -56,18 +56,18 @@ const gridClasses = "grid grid-cols-1 gap-[24px] sm:grid-cols-2 xl:grid-cols-3";
 const listClasses = "grid grid-cols-1 gap-[24px]";
 
 const categoryItemClasses =
-  "flex cursor-pointer justify-between border-b border-[#e6e6e6] pb-2.5 pt-[11px] text-[15px] text-body transition-colors duration-300 last:border-b-0 hover:text-primary focus-visible:outline focus-visible:outline-1 focus-visible:outline-dashed focus-visible:outline-primary";
+  "flex cursor-pointer justify-between border-b border-[#e6e6e6] pb-2.5 pt-[11px] text-[15px] text-body transition-colors duration-300 last:border-b-0 hover:text-primary";
 
 const iconButtonClasses =
-  "flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full bg-[#fffdfd] p-0 text-[15px] leading-none text-[#393939] shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300 hover:bg-primary hover:text-white active:bg-primary active:text-white [&>svg]:relative [&>svg]:top-px [&>svg]:block [&>svg]:shrink-0";
+  "flex h-9 w-9 cursor-pointer items-center justify-center rounded-full bg-[#fffdfd] p-0 text-[15px] leading-none text-[#393939] shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300 hover:bg-primary hover:text-white active:bg-primary active:text-white [&>svg]:relative [&>svg]:top-px ";
 
 const wishlistButtonClasses =
   iconButtonClasses +
-  " group-hover/c:bg-primary group-hover/c:text-white group-data-[show=true]/c:bg-primary group-data-[show=true]/c:text-white data-[active=true]:bg-primary data-[active=true]:text-white";
+  " group-hover/c:bg-primary group-hover/c:text-white group-data-[show=true]/c:bg-primary";
 
 const hiddenIconButtonClasses =
   iconButtonClasses +
-  " invisible translate-x-3 opacity-0 group-hover/c:visible group-hover/c:translate-x-0 group-hover/c:opacity-100 group-data-[show=true]/c:visible group-data-[show=true]/c:translate-x-0 group-data-[show=true]/c:opacity-100";
+  " invisible translate-x-3 opacity-0 group-hover/c:visible group-hover/c:translate-x-0 group-hover/c:opacity-100";
 
 const pageButtonClasses =
   "h-11 min-w-11 cursor-pointer rounded-lg bg-[#f1f3f5] p-0 text-sm font-medium leading-[44px] text-dark enabled:hover:bg-primary enabled:hover:text-white data-[active=true]:bg-primary data-[active=true]:text-white disabled:cursor-default";
@@ -167,7 +167,6 @@ async function loadProducts() {
 function addCategoryItem(categoryName, productCount) {
   const categoryItem = document.createElement("li");
   categoryItem.className = categoryItemClasses;
-  categoryItem.tabIndex = 0;
 
   const nameSpan = document.createElement("span");
   nameSpan.textContent = categoryName;
@@ -176,7 +175,16 @@ function addCategoryItem(categoryName, productCount) {
   countSpan.textContent = "(" + productCount + ")";
 
   categoryItem.append(nameSpan, countSpan);
-  categoryList.appendChild(categoryItem);
+  categoryList.append(categoryItem);
+
+  categoryItem.addEventListener("click", chooseCategory);
+
+  categoryItem.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      chooseCategory();
+    }
+  });
 
   function chooseCategory() {
     selectedCategory = categoryName;
@@ -192,15 +200,6 @@ function addCategoryItem(categoryName, productCount) {
 
     showProducts();
   }
-
-  categoryItem.addEventListener("click", chooseCategory);
-
-  categoryItem.addEventListener("keydown", function (event) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      chooseCategory();
-    }
-  });
 }
 
 function showCategories() {
@@ -261,7 +260,7 @@ function createStars(rating) {
 
 function createProductCard(product, isListView) {
   const card = document.createElement("div");
-  card.className = "group/c min-w-0 bg-transparent";
+  card.className = "group/c bg-transparent";
   card.dataset.show = "false";
 
   if (isListView) {
@@ -289,7 +288,6 @@ function createProductCard(product, isListView) {
     "block h-[270px] w-full max-w-full rounded-[15px] transition-transform duration-500 ease-out group-hover/c:scale-105 group-data-[show=true]/c:scale-105 cursor-pointer";
   productImage.src = product.image;
   productImage.alt = product.title;
-  productImage.loading = "lazy";
 
   if (isListView) {
     productImage.classList.add("xl:w-[60%]", "xl:ml-[110px]", "xl:shrink-0");
@@ -302,8 +300,6 @@ function createProductCard(product, isListView) {
   const wishlistButton = document.createElement("button");
   wishlistButton.className = wishlistButtonClasses;
   wishlistButton.type = "button";
-  wishlistButton.setAttribute("aria-label", "Wishlist");
-  wishlistButton.dataset.active = String(wishlistIds.includes(product.id));
   wishlistButton.innerHTML = heartIcon;
 
   const cartButton = document.createElement("button");
@@ -315,7 +311,6 @@ function createProductCard(product, isListView) {
   const compareButton = document.createElement("button");
   compareButton.className = hiddenIconButtonClasses;
   compareButton.type = "button";
-  compareButton.setAttribute("aria-label", "Compare");
   compareButton.innerHTML = compareIcon;
 
   iconButtonsBox.append(wishlistButton, cartButton, compareButton);
@@ -341,25 +336,11 @@ function createProductCard(product, isListView) {
     console.log("Compare product:", product.id);
   });
 
-  imageBox.addEventListener("pointerup", function (event) {
-    if (event.pointerType !== "touch") return;
-    if (event.target.closest("button")) return;
-
-    const willShow = card.dataset.show !== "true";
-
-    hideAllCardButtons();
-    card.dataset.show = String(willShow);
-  });
-
-  card.addEventListener("mouseleave", function () {
-    card.dataset.show = "false";
-  });
-
   const details = document.createElement("div");
   details.className = "pb-0.5 pt-[14px]";
 
   if (isListView) {
-    details.classList.add("md:p-0", "xl:shrink-0");
+    details.classList.add("md:p-0");
   }
 
   const title = document.createElement("h3");
@@ -393,20 +374,6 @@ function createProductCard(product, isListView) {
   card.append(imageBox, details);
   return card;
 }
-
-function hideAllCardButtons() {
-  const openCards = productGrid.querySelectorAll('[data-show="true"]');
-
-  for (const openCard of openCards) {
-    openCard.dataset.show = "false";
-  }
-}
-
-document.addEventListener("click", function (event) {
-  if (event.target.closest("[data-image-box]")) return;
-
-  hideAllCardButtons();
-});
 
 function getVisibleProducts() {
   const visibleProducts = allProducts.filter(function (product) {
@@ -545,7 +512,6 @@ function showPagination(totalPages) {
 
 function setSortDropdownOpen(isOpen) {
   sortDropdown.dataset.open = String(isOpen);
-  sortButton.setAttribute("aria-expanded", String(isOpen));
 }
 
 sortButton.addEventListener("click", function (event) {
@@ -574,17 +540,16 @@ document.addEventListener("click", function () {
   setSortDropdownOpen(false);
 });
 
+// Grid view and List view
+
 for (const clickedViewButton of viewButtons) {
   clickedViewButton.addEventListener("click", function () {
     currentView = clickedViewButton.dataset.view;
-
-    for (const viewButton of viewButtons) {
-      viewButton.dataset.active = String(viewButton === clickedViewButton);
-    }
-
     showProducts();
   });
 }
+
+// header Scroll section and backToTopButton
 
 new Image().src = darkLogoPath;
 
@@ -602,27 +567,26 @@ function updateHeaderOnScroll() {
 }
 
 window.addEventListener("scroll", updateHeaderOnScroll, { passive: true });
-updateHeaderOnScroll();
 
 backToTopButton.addEventListener("click", function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+// ClosePanel
+
 function closePanels() {
   mobileMenu.dataset.open = "false";
-  mobileMenu.setAttribute("aria-hidden", "true");
-
   infoPanel.dataset.open = "false";
-  infoPanel.setAttribute("aria-hidden", "true");
 
   overlay.dataset.show = "false";
 }
+
+// OpenPanel
 
 function openPanel(panel) {
   closePanels();
 
   panel.dataset.open = "true";
-  panel.setAttribute("aria-hidden", "false");
   overlay.dataset.show = "true";
 }
 
@@ -639,17 +603,6 @@ overlay.addEventListener("click", closePanels);
 for (const closeButton of closeButtons) {
   closeButton.addEventListener("click", closePanels);
 }
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    setSortDropdownOpen(false);
-    closePanels();
-  }
-});
-
-window
-  .matchMedia("(min-width: 1200px)")
-  .addEventListener("change", closePanels);
 
 for (const clickedItem of accordionItems) {
   const menuRow = clickedItem.querySelector("div");
@@ -669,14 +622,6 @@ for (const clickedItem of accordionItems) {
       clickedItem.dataset.open = "true";
       clickedSubmenu.style.maxHeight = clickedSubmenu.scrollHeight + "px";
     }
-  });
-}
-
-const allForms = document.querySelectorAll("form");
-
-for (const form of allForms) {
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
   });
 }
 

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en" class="[scrollbar-gutter:stable]">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,7 +35,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        future: { hoverOnlyWhenSupported: true },
         theme: {
           screens: {
             sm: "576px",
@@ -59,14 +58,14 @@
       };
     </script>
 
-    <script src="tourex_app.js" defer></script>
+    <script src="index.js" defer></script>
   </head>
 
   <body>
     <header>
       <div
         id="headerArea"
-        class="group/h absolute inset-x-0 top-0 z-[2] py-[14px] data-[sticky=true]:fixed data-[sticky=true]:z-[99] data-[sticky=true]:animate-slide data-[sticky=true]:bg-white data-[sticky=true]:shadow-[0_10px_15px_rgba(25,25,25,0.1)] xl:data-[sticky=true]:py-0 min-[1440px]:py-0"
+        class="group/h absolute inset-x-0 top-0 z-[2] py-[14px] data-[sticky=true]:fixed data-[sticky=true]:z-[2] data-[sticky=true]:animate-slide data-[sticky=true]:bg-white data-[sticky=true]:shadow-[0_10px_15px_rgba(25,25,25,0.1)] xl:data-[sticky=true]:py-0 min-[1440px]:py-0"
         data-sticky="false"
       >
         <div class="flex flex-wrap items-center">
@@ -86,15 +85,12 @@
               </a>
             </div>
 
-            <nav
-              class="ml-0 hidden xl:ml-[180px] xl:flex"
-              aria-label="Main menu"
-            >
+            <nav class="ml-0 hidden xl:ml-[180px] xl:flex">
               <ul class="flex">
                 <li class="group/m relative block">
                   <a
                     href="#"
-                    class="relative z-[1] flex items-center px-3 py-[35px] text-[15px] font-medium capitalize text-white transition-all duration-300 ease-out after:ml-1 after:block after:font-['Font_Awesome_6_Free'] after:text-xs after:font-black after:content-['\f107'] group-data-[sticky=true]/h:!text-dark xl:group-data-[sticky=true]/h:py-[21px]"
+                    class="relative z-[1] flex items-center px-3 py-[35px] text-[15px] font-medium capitalize text-white transition-all duration-300 ease-out after:ml-1 after:block after:font-['Font_Awesome_6_Free'] after:text-xs after:font-black after:content-['\f107'] group-data-[sticky=true]/h:text-dark xl:group-data-[sticky=true]/h:py-[21px]"
                     >Home</a
                   >
                   <ul
@@ -214,13 +210,11 @@
             <div class="group/cart relative ml-5 hidden pl-5 xl:block">
               <span
                 class="absolute top-[0px] left-0 hidden h-5 w-0.5 border-[1.5px] border-[#c5c5c5] xl:block"
-                aria-hidden="true"
               ></span>
 
               <button
                 type="button"
                 class="px-1.5 py-px text-white transition-all duration-300 ease-out group-data-[sticky=true]/h:text-dark"
-                aria-label="Shopping cart"
               >
                 <svg
                   class="inline align-middle"
@@ -297,13 +291,11 @@
             <div class="relative ml-5 pl-5 leading-none">
               <span
                 class="absolute left-0 top-0 hidden h-5 w-0.5 border-[1.5px] border-[#c5c5c5] xl:block"
-                aria-hidden="true"
               ></span>
               <button
                 id="desktopMenuButton"
                 type="button"
                 class="hidden h-5 cursor-pointer px-1.5 py-px leading-[0] xl:block [&>span]:block [&>span]:h-0.5 [&>span]:w-[34px] [&>span]:rounded-md [&>span]:bg-white [&>span:not(:last-child)]:mb-1.5 group-data-[sticky=true]/h:[&>span]:bg-dark"
-                aria-label="Open information panel"
               >
                 <span></span>
                 <span></span>
@@ -330,12 +322,10 @@
       >
         <div
           class="absolute left-0 top-0 z-[1] h-[188px] w-full bg-gradient-to-b from-black to-transparent"
-          aria-hidden="true"
         ></div>
 
         <div
           class="absolute left-0 top-0 z-[1] h-full w-full bg-gradient-to-b from-transparent to-black/40"
-          aria-hidden="true"
         ></div>
 
         <div class="absolute z-[1] h-[121px] w-full px-3 text-white">
@@ -347,7 +337,6 @@
 
           <nav
             class="text-center text-base font-medium leading-[26px] text-white"
-            aria-label="Breadcrumb"
           >
             <ul
               class="flex flex-wrap justify-center [&>li]:mr-2 [&>li]:py-[5px] [&>li]:font-medium [&>li]:capitalize [&>li]:text-white"
@@ -356,20 +345,17 @@
                 <a href="#" class="relative left-[2px]">Home</a>
               </li>
 
-              <li class="relative left-px" aria-hidden="true">
+              <li class="relative left-px">
                 <i class="fa-sharp fa-solid fa-angle-right"></i>
               </li>
 
               <li>Pages</li>
 
-              <li class="relative -left-px" aria-hidden="true">
+              <li class="relative -left-px">
                 <i class="fa-sharp fa-solid fa-angle-right"></i>
               </li>
 
-              <li
-                class="min-[375px]:relative min-[375px]:-left-0.5"
-                aria-current="page"
-              >
+              <li class="min-[375px]:relative min-[375px]:-left-0.5">
                 Shop Archive Page
               </li>
             </ul>
@@ -384,7 +370,6 @@
           <div class="-mx-3 flex flex-wrap">
             <aside
               class="mb-[50px] w-full px-3 lg:sticky lg:top-[120px] lg:w-1/3 lg:self-start xl:w-1/4"
-              aria-label="Shop filters"
             >
               <div
                 class="relative mb-10 rounded-xl border border-[#e9e9e9] bg-white px-[30px] pb-[30px] pt-[25px] text-dark shadow-[0_0_15px_0_#efefef] xxl:w-[311.5px]"
@@ -401,14 +386,12 @@
                   type="text"
                   placeholder="Type here . . ."
                   name="search"
-                  autocomplete="off"
                   class="h-10 w-full rounded-md border border-transparent bg-[#f2f2f2] pl-3 pr-10 font-sans text-[13px] text-body outline-none placeholder:text-body"
                 />
 
                 <button
                   type="button"
                   class="absolute bottom-9 right-[46px] h-7 px-1.5 py-px"
-                  aria-label="Search"
                 >
                   <svg
                     class="inline align-middle md:relative top-[-1px]"
@@ -462,8 +445,6 @@
                       class="block h-20 w-full rounded-lg"
                       src="tourex_image/mobile.webp"
                       alt="Camera nstax"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                   <div
@@ -476,8 +457,6 @@
                     </h3>
                     <div
                       class="relative flex min-[1024px]:top-[0px] xxl:-top-[1px] [&>span]:mr-0.5 [&>span]:text-sm [&>span]:text-[#ff9901] [&>span:last-child]:text-body"
-                      role="img"
-                      aria-label="Rated 4 out of 5"
                     >
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
@@ -499,8 +478,6 @@
                       class="block h-20 w-full rounded-lg"
                       src="tourex_image/watch.webp"
                       alt="Hats Men Caps"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                   <div
@@ -513,8 +490,6 @@
                     </h3>
                     <div
                       class="relative flex min-[1024px]:top-[0px] xxl:-top-[1px] [&>span]:mr-0.5 [&>span]:text-sm [&>span]:text-[#ff9901] [&>span:last-child]:text-body"
-                      role="img"
-                      aria-label="Rated 4 out of 5"
                     >
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
@@ -537,8 +512,6 @@
                       class="block h-20 w-full rounded-lg"
                       src="tourex_image/camera.webp"
                       alt="Canon EOS R100"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                   <div
@@ -551,8 +524,6 @@
                     </h3>
                     <div
                       class="relative flex min-[1024px]:top-[0px] xxl:-top-[1px] [&>span]:mr-0.5 [&>span]:text-sm [&>span]:text-[#ff9901] [&>span:last-child]:text-body"
-                      role="img"
-                      aria-label="Rated 4 out of 5"
                     >
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
@@ -574,8 +545,6 @@
                       class="block h-20 w-full rounded-lg"
                       src="tourex_image/cap.webp"
                       alt="Halo Smartwatch"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                   <div
@@ -588,8 +557,6 @@
                     </h3>
                     <div
                       class="relative flex min-[1024px]:top-[0px] xxl:-top-[1px] [&>span]:mr-0.5 [&>span]:text-sm [&>span]:text-[#ff9901] [&>span:last-child]:text-body"
-                      role="img"
-                      aria-label="Rated 4 out of 5"
                     >
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
                       <span><i class="fa-sharp fa-solid fa-star"></i></span>
@@ -607,7 +574,6 @@
             </aside>
             <section
               class="mb-[50px] w-full px-3 lg:w-2/3 xl:w-3/4 xxl:pl-[57px]"
-              aria-label="Products"
             >
               <div
                 class="mb-[25px] flex flex-col items-end gap-[18px] rounded-lg border border-[#e9e9e9] pb-[21px] pl-5 pr-[30px] pt-[14px] md:flex-row md:items-center md:justify-between md:gap-0 md:py-[19px]"
@@ -615,7 +581,6 @@
                 <span
                   id="resultText"
                   class="relative -top-px text-[15px] font-medium capitalize leading-[26px] text-body"
-                  aria-live="polite"
                   >Loading...</span
                 >
                 <div class="flex items-center gap-[11px]">
@@ -628,8 +593,6 @@
                       id="sortButton"
                       type="button"
                       class="flex cursor-pointer items-center gap-2.5 whitespace-nowrap p-0 font-sans text-[15px] font-medium capitalize leading-[26px] text-body"
-                      aria-haspopup="listbox"
-                      aria-expanded="false"
                     >
                       <span
                         id="sortLabel"
@@ -657,34 +620,17 @@
                     <ul
                       id="sortList"
                       class="invisible absolute right-0 top-full z-20 mt-2 min-w-[210px] translate-y-2.5 rounded-lg bg-white py-2.5 opacity-0 shadow-[0_10px_40px_rgba(2,6,21,0.12)] transition-all duration-[250ms] group-data-[open=true]/s:visible group-data-[open=true]/s:translate-y-0 group-data-[open=true]/s:opacity-100 [&>li]:cursor-pointer [&>li]:px-[22px] [&>li]:py-1.5 [&>li]:text-sm [&>li]:font-normal [&>li]:leading-6 [&>li]:text-body [&>li]:transition-all [&>li]:duration-200 [&>li:hover]:text-primary [&>li[data-selected=true]]:font-semibold [&>li[data-selected=true]]:text-primary"
-                      role="listbox"
                     >
-                      <li
-                        role="option"
-                        data-value="default"
-                        data-selected="true"
-                      >
+                      <li data-value="default" data-selected="true">
                         Default sorting
                       </li>
-                      <li
-                        role="option"
-                        data-value="offers"
-                        data-selected="false"
-                      >
+                      <li data-value="offers" data-selected="false">
                         Sort by Best Offers
                       </li>
-                      <li
-                        role="option"
-                        data-value="price"
-                        data-selected="false"
-                      >
+                      <li data-value="price" data-selected="false">
                         Sort by price
                       </li>
-                      <li
-                        role="option"
-                        data-value="rating"
-                        data-selected="false"
-                      >
+                      <li data-value="rating" data-selected="false">
                         Sort by rating
                       </li>
                     </ul>
@@ -697,7 +643,6 @@
                       class="cursor-pointer text-xl leading-none hover:relative hover:-left-px hover:top-0 hover:text-primary data-[active=true]:relative data-[active=true]:-left-px data-[active=true]:top-0 data-[active=true]:text-primary md:hover:-top-px md:data-[active=true]:-top-px lg:hover:top-0 lg:data-[active=true]:-top-[1px]"
                       data-view="grid"
                       data-active="true"
-                      aria-label="Grid view"
                     >
                       <svg
                         class="inline align-middle"
@@ -743,7 +688,6 @@
                       class="relative -left-px -top-px cursor-pointer text-xl leading-none hover:text-primary data-[active=true]:text-primary lg:-top-[2px]"
                       data-view="list"
                       data-active="false"
-                      aria-label="List view"
                     >
                       <svg
                         class="inline align-middle"
@@ -773,282 +717,252 @@
               <ul
                 id="pagination"
                 class="mx-auto mb-[30px] flex w-fit max-w-full flex-wrap pt-[60px]"
-                aria-label="Pagination"
               ></ul>
             </section>
           </div>
         </div>
       </div>
-    </main>
-    <aside
-      id="mobileMenu"
-      class="invisible fixed bottom-0 right-0 top-0 z-[1000] w-[min(340px,calc(100%-20px))] translate-x-[105%] overflow-y-auto overscroll-contain bg-white transition-[transform,visibility] duration-[400ms] ease-in-out data-[open=true]:visible data-[open=true]:translate-x-0 xl:hidden [&[data-open=true]_.mobile-close]:rotate-[360deg]"
-      data-open="false"
-      aria-hidden="true"
-      aria-label="Mobile menu"
-    >
-      <div class="flex items-center justify-between px-[25px] pt-[30px]">
-        <a href="#" aria-label="Tourex home"
-          ><img
-            class="inline align-middle h-[35px]"
-            src="tourex_image/logo_dark.webp"
-            alt="Tourex"
-            width="150"
-            height="35"
-        /></a>
+
+      <aside
+        id="mobileMenu"
+        class="invisible fixed bottom-0 right-0 top-0 z-[1000] w-[min(340px,calc(100%-20px))] translate-x-[105%] overflow-y-auto overscroll-contain bg-white transition-[transform,visibility] duration-[400ms] ease-in-out data-[open=true]:visible data-[open=true]:translate-x-0 xl:hidden [&[data-open=true]_.mobile-close]:rotate-[360deg]"
+        data-open="false"
+      >
+        <div class="flex items-center justify-between px-[25px] pt-[30px]">
+          <a href="#"
+            ><img
+              class="inline align-middle h-[35px]"
+              src="tourex_image/logo_dark.webp"
+              alt="Tourex"
+              width="150"
+              height="35"
+          /></a>
+          <button
+            type="button"
+            class="mobile-close absolute right-[15px] top-7 z-10 w-[35px] cursor-pointer p-2 text-center text-[23px] leading-[30px] text-primary transition-all duration-500"
+            data-close
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form class="px-[25px] pb-[25px] pt-[30px]">
+          <input
+            id="mobileSearchInput"
+            type="text"
+            placeholder="Search here..."
+            class="h-[45px] w-[255px] border-0 bg-[#f2f2f2] px-5 font-sans text-[15px] text-dark outline-none placeholder:text-dark"
+          />
+        </form>
+
+        <nav>
+          <ul class="border-t border-[#e6e6e6]">
+            <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
+              <div
+                class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
+              >
+                <a
+                  href="#"
+                  class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
+                  >Home</a
+                >
+                <button
+                  type="button"
+                  class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
+                >
+                  <span
+                    class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
+                  ></span>
+                </button>
+              </div>
+              <ul
+                class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
+              >
+                <li><a href="#">Home One (Travel)</a></li>
+                <li><a href="#">Home Two (Travel)</a></li>
+                <li><a href="#">Home Three (Travel)</a></li>
+                <li><a href="#">Home Four (Hotel)</a></li>
+                <li><a href="#">Home Five (Hotel)</a></li>
+                <li><a href="#">Home Six (Hotel)</a></li>
+                <li><a href="#">Home Seven (Restaurant)</a></li>
+              </ul>
+            </li>
+            <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
+              <div
+                class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
+              >
+                <a
+                  href="#"
+                  class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
+                  >Features</a
+                >
+                <button
+                  type="button"
+                  class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
+                >
+                  <span
+                    class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
+                  ></span>
+                </button>
+              </div>
+              <ul
+                class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
+              >
+                <li><a href="#">Hotel Grid</a></li>
+                <li><a href="#">Tour Grid One</a></li>
+                <li><a href="#">Tour Grid Two</a></li>
+                <li><a href="#">Hotel Listing</a></li>
+                <li><a href="#">Tour Details One</a></li>
+                <li><a href="#">Tour Details Two</a></li>
+              </ul>
+            </li>
+            <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
+              <div
+                class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
+              >
+                <a
+                  href="#"
+                  class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
+                  >Pages</a
+                >
+                <button
+                  type="button"
+                  class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
+                >
+                  <span
+                    class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
+                  ></span>
+                </button>
+              </div>
+              <ul
+                class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
+              >
+                <li><a href="#">About</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="#">Team Details</a></li>
+                <li><a href="#" aria-current="page">Shop</a></li>
+                <li><a href="#">Shop Details</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Wishlist</a></li>
+                <li><a href="#">Checkout</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Faq</a></li>
+                <li><a href="#">Log In</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Error</a></li>
+              </ul>
+            </li>
+            <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
+              <div
+                class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
+              >
+                <a
+                  href="#"
+                  class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
+                  >Blogs</a
+                >
+                <button
+                  type="button"
+                  class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
+                >
+                  <span
+                    class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
+                  ></span>
+                </button>
+              </div>
+              <ul
+                class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
+              >
+                <li><a href="#">Blog Grid</a></li>
+                <li><a href="#">Blog Standard</a></li>
+                <li><a href="#">Blog Details</a></li>
+              </ul>
+            </li>
+            <li class="border-b border-[#e6e6e6]">
+              <a
+                href="#"
+                class="block px-[25px] py-[7px] text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div
+          class="flex gap-3 pl-[26px] pr-[25px] pb-10 pt-[30px] [&>a]:flex [&>a]:h-10 [&>a]:w-10 [&>a]:items-center [&>a]:justify-center [&>a]:border [&>a]:border-[#efefef] [&>a]:text-primary [&>a]:text-[16px] [&>a:hover]:border-primary [&>a:hover]:bg-primary [&>a:hover]:text-white"
+        >
+          <a href="#"
+            ><i class="fab fa-facebook-f text-[16px]" aria-hidden="true"></i
+          ></a>
+          <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="#"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+        </div>
+      </aside>
+      <aside
+        id="infoPanel"
+        class="invisible fixed bottom-0 right-0 top-0 z-[1000] hidden w-[min(340px,calc(100%-20px))] translate-x-[105%] overflow-y-auto overscroll-contain bg-white px-[30px] py-10 transition-[transform,visibility] duration-[400ms] ease-in-out data-[open=true]:visible data-[open=true]:translate-x-0 xl:block"
+        data-open="false"
+      >
         <button
           type="button"
-          class="mobile-close absolute right-[15px] top-7 z-10 w-[35px] cursor-pointer p-2 text-center text-[23px] leading-[30px] text-primary transition-all duration-500"
+          class="absolute right-[30px] top-3.5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-primary text-primary text-[20px]"
           data-close
-          aria-label="Close menu"
         >
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          <i
+            class="fa-sharp fa-regular fa-xmark font-bold relative top-[1px]"
+          ></i>
         </button>
-      </div>
 
-      <form class="px-[25px] pb-[25px] pt-[30px]" role="search">
-        <label for="mobileSearchInput" class="sr-only">Search the site</label>
-        <input
-          id="mobileSearchInput"
-          type="text"
-          placeholder="Search here..."
-          class="h-[45px] w-[255px] border-0 bg-[#f2f2f2] px-5 font-sans text-[15px] text-dark outline-none placeholder:text-dark"
-        />
-      </form>
+        <a class="mt-3.5 inline-block" href="#">
+          <img
+            class="inline align-middle h-[34px]"
+            src="tourex_image/logo_dark.webp"
+            alt="Tourex"
+            width="126"
+            height="34"
+          />
+        </a>
 
-      <nav aria-label="Mobile navigation">
-        <ul class="border-t border-[#e6e6e6]">
-          <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
-            <div
-              class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
-            >
-              <a
-                href="#"
-                class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
-                >Home</a
-              >
-              <button
-                type="button"
-                class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
-                aria-label="Toggle Home submenu"
-              >
-                <span
-                  class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
-                ></span>
-              </button>
-            </div>
-            <ul
-              class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
-            >
-              <li><a href="#">Home One (Travel)</a></li>
-              <li><a href="#">Home Two (Travel)</a></li>
-              <li><a href="#">Home Three (Travel)</a></li>
-              <li><a href="#">Home Four (Hotel)</a></li>
-              <li><a href="#">Home Five (Hotel)</a></li>
-              <li><a href="#">Home Six (Hotel)</a></li>
-              <li><a href="#">Home Seven (Restaurant)</a></li>
-            </ul>
-          </li>
-          <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
-            <div
-              class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
-            >
-              <a
-                href="#"
-                class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
-                >Features</a
-              >
-              <button
-                type="button"
-                class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
-                aria-label="Toggle Features submenu"
-              >
-                <span
-                  class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
-                ></span>
-              </button>
-            </div>
-            <ul
-              class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
-            >
-              <li><a href="#">Hotel Grid</a></li>
-              <li><a href="#">Tour Grid One</a></li>
-              <li><a href="#">Tour Grid Two</a></li>
-              <li><a href="#">Hotel Listing</a></li>
-              <li><a href="#">Tour Details One</a></li>
-              <li><a href="#">Tour Details Two</a></li>
-            </ul>
-          </li>
-          <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
-            <div
-              class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
-            >
-              <a
-                href="#"
-                class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
-                >Pages</a
-              >
-              <button
-                type="button"
-                class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
-                aria-label="Toggle Pages submenu"
-              >
-                <span
-                  class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
-                ></span>
-              </button>
-            </div>
-            <ul
-              class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
-            >
-              <li><a href="#">About</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Team Details</a></li>
-              <li><a href="#" aria-current="page">Shop</a></li>
-              <li><a href="#">Shop Details</a></li>
-              <li><a href="#">Cart</a></li>
-              <li><a href="#">Wishlist</a></li>
-              <li><a href="#">Checkout</a></li>
-              <li><a href="#">Pricing</a></li>
-              <li><a href="#">Faq</a></li>
-              <li><a href="#">Log In</a></li>
-              <li><a href="#">Register</a></li>
-              <li><a href="#">Error</a></li>
-            </ul>
-          </li>
-          <li class="group/mi border-b border-[#e6e6e6]" data-open="false">
-            <div
-              class="flex cursor-pointer items-center justify-between py-[7px] pl-[25px] pr-5"
-            >
-              <a
-                href="#"
-                class="flex-1 text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
-                >Blogs</a
-              >
-              <button
-                type="button"
-                class="h-8 w-8 flex-[0_0_32px] cursor-pointer bg-[#f2f2f2] group-data-[open=true]/mi:bg-primary relative -top-[1px]"
-                aria-label="Toggle Blogs submenu"
-              >
-                <span
-                  class="relative block h-[2px] w-3 rounded-[10px] bg-primary transition-all duration-500 group-data-[open=true]/mi:bg-white before:absolute before:left-1/2 before:top-1/2 before:h-3 before:w-[2px] before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-[10px] before:bg-primary before:content-[''] group-data-[open=true]/mi:before:hidden left-[10px]"
-                ></span>
-              </button>
-            </div>
-            <ul
-              class="m-0 max-h-0 overflow-hidden p-0 transition-[max-height] duration-[400ms] ease-in-out [&>li]:border-t [&>li]:border-[#e6e6e6] [&_a]:block [&_a]:py-2.5 [&_a]:pl-[45px] [&_a]:pr-[25px] [&_a]:text-[15px] [&_a]:font-semibold [&_a]:uppercase [&_a]:leading-[26px] [&_a]:tracking-[1px] [&_a]:text-dark [&_a:hover]:text-primary"
-            >
-              <li><a href="#">Blog Grid</a></li>
-              <li><a href="#">Blog Standard</a></li>
-              <li><a href="#">Blog Details</a></li>
-            </ul>
-          </li>
-          <li class="border-b border-[#e6e6e6]">
-            <a
-              href="#"
-              class="block px-[25px] py-[7px] text-[15px] font-semibold uppercase leading-8 tracking-[1px] text-dark hover:text-primary"
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </nav>
+        <div class="mt-[29px] mb-[24px] h-[1.5px] bg-[rgb(160_134_233)]"></div>
 
-      <div
-        class="flex gap-3 pl-[26px] pr-[25px] pb-10 pt-[30px] [&>a]:flex [&>a]:h-10 [&>a]:w-10 [&>a]:items-center [&>a]:justify-center [&>a]:border [&>a]:border-[#efefef] [&>a]:text-primary [&>a]:text-[16px] [&>a:hover]:border-primary [&>a:hover]:bg-primary [&>a:hover]:text-white"
-      >
-        <a href="#" aria-label="Facebook"
-          ><i class="fab fa-facebook-f text-[16px]" aria-hidden="true"></i
-        ></a>
-        <a href="#" aria-label="Twitter"
-          ><i class="fab fa-twitter" aria-hidden="true"></i
-        ></a>
-        <a href="#" aria-label="Instagram"
-          ><i class="fab fa-instagram" aria-hidden="true"></i
-        ></a>
-        <a href="#" aria-label="LinkedIn"
-          ><i class="fab fa-linkedin-in" aria-hidden="true"></i
-        ></a>
-        <a href="#" aria-label="YouTube"
-          ><i class="fab fa-youtube" aria-hidden="true"></i
-        ></a>
-      </div>
-    </aside>
-    <aside
-      id="infoPanel"
-      class="invisible fixed bottom-0 right-0 top-0 z-[1000] hidden w-[min(340px,calc(100%-20px))] translate-x-[105%] overflow-y-auto overscroll-contain bg-white px-[30px] py-10 transition-[transform,visibility] duration-[400ms] ease-in-out data-[open=true]:visible data-[open=true]:translate-x-0 xl:block"
-      data-open="false"
-      aria-hidden="true"
-      aria-label="Contact information"
-    >
-      <button
-        type="button"
-        class="absolute right-[30px] top-3.5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-primary text-primary text-[20px]"
-        data-close
-        aria-label="Close panel"
-      >
-        <i
-          class="fa-sharp fa-regular fa-xmark font-bold relative top-[1px]"
-          aria-hidden="true"
-        ></i>
-      </button>
+        <div
+          class="mb-[29px] [&_h4]:mb-2 [&_h4]:text-[18px] [&_h4]:font-bold [&_h4]:leading-[1.2] [&_h4]:text-dark [&_p]:text-base [&_p]:leading-[26px] [&_p]:text-body"
+        >
+          <h4>Office Address</h4>
+          <address class="not-italic">
+            <p>123/A, Miranda City Likaoli<br />Prikano, Dope</p>
+          </address>
+        </div>
 
-      <a class="mt-3.5 inline-block" href="#" aria-label="Tourex home">
-        <img
-          class="inline align-middle h-[34px]"
-          src="tourex_image/logo_dark.webp"
-          alt="Tourex"
-          width="126"
-          height="34"
-        />
-      </a>
+        <div
+          class="mb-[29px] [&_h4]:mb-2 [&_h4]:text-[18px] [&_h4]:font-bold [&_h4]:leading-[1.2] [&_h4]:text-dark [&_p]:text-base [&_p]:leading-[26px] [&_p]:text-body"
+        >
+          <h4>Phone Number</h4>
+          <p class="relative -top-[1px]">+0989 7876 9865 9</p>
+          <p class="relative top-[1px]">+(090) 8765 86543 85</p>
+        </div>
 
-      <div
-        class="mt-[29px] mb-[24px] h-[1.5px] bg-[rgb(160_134_233)]"
-        aria-hidden="true"
-      ></div>
+        <div
+          class="mb-[32px] [&_h4]:mb-[8px] [&_h4]:text-[18px] [&_h4]:font-bold [&_h4]:leading-[1.2] [&_h4]:text-dark [&_p]:text-base [&_p]:leading-[26px] [&_p]:text-body"
+        >
+          <h4 class="relative top-[1px]">Email Address</h4>
+          <p class="relative top-[0px]">info@example.com</p>
+          <p class="relative top-[2px]">example.mail@hum.com</p>
+        </div>
 
-      <div
-        class="mb-[29px] [&_h4]:mb-2 [&_h4]:text-[18px] [&_h4]:font-bold [&_h4]:leading-[1.2] [&_h4]:text-dark [&_p]:text-base [&_p]:leading-[26px] [&_p]:text-body"
-      >
-        <h4>Office Address</h4>
-        <address class="not-italic">
-          <p>123/A, Miranda City Likaoli<br />Prikano, Dope</p>
-        </address>
-      </div>
+        <div
+          class="flex gap-[5px] [&>a]:flex [&>a]:h-10 [&>a]:w-10 [&>a]:items-center [&>a]:justify-center [&>a]:rounded-full [&>a]:border [&>a]:border-primary [&>a]:text-[16px] [&>a]:text-primary [&>a:hover]:bg-primary [&>a:hover]:text-white"
+        >
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </aside>
+    </main>
 
-      <div
-        class="mb-[29px] [&_h4]:mb-2 [&_h4]:text-[18px] [&_h4]:font-bold [&_h4]:leading-[1.2] [&_h4]:text-dark [&_p]:text-base [&_p]:leading-[26px] [&_p]:text-body"
-      >
-        <h4>Phone Number</h4>
-        <p class="relative -top-[1px]">+0989 7876 9865 9</p>
-        <p class="relative top-[1px]">+(090) 8765 86543 85</p>
-      </div>
-
-      <div
-        class="mb-[32px] [&_h4]:mb-[8px] [&_h4]:text-[18px] [&_h4]:font-bold [&_h4]:leading-[1.2] [&_h4]:text-dark [&_p]:text-base [&_p]:leading-[26px] [&_p]:text-body"
-      >
-        <h4 class="relative top-[1px]">Email Address</h4>
-        <p class="relative top-[0px]">info@example.com</p>
-        <p class="relative top-[2px]">example.mail@hum.com</p>
-      </div>
-
-      <div
-        class="flex gap-[5px] [&>a]:flex [&>a]:h-10 [&>a]:w-10 [&>a]:items-center [&>a]:justify-center [&>a]:rounded-full [&>a]:border [&>a]:border-primary [&>a]:text-[16px] [&>a]:text-primary [&>a:hover]:bg-primary [&>a:hover]:text-white"
-      >
-        <a href="#" aria-label="Facebook"
-          ><i class="fab fa-facebook-f" aria-hidden="true"></i
-        ></a>
-        <a href="#" aria-label="Twitter"
-          ><i class="fab fa-twitter" aria-hidden="true"></i
-        ></a>
-        <a href="#" aria-label="Google"
-          ><i class="fab fa-google-plus-g" aria-hidden="true"></i
-        ></a>
-        <a href="#" aria-label="Instagram"
-          ><i class="fab fa-instagram" aria-hidden="true"></i
-        ></a>
-      </div>
-    </aside>
     <footer
       class="relative bg-dark bg-[url('tourex_image/footer-backgrd-image.jpg')] bg-cover bg-center bg-no-repeat pt-[90px] text-base leading-[26px] text-[#acadb5] xl:pt-[130px]"
     >
@@ -1064,7 +978,6 @@
                 alt="Tourex"
                 width="126"
                 height="35"
-                loading="lazy"
               />
 
               <p
@@ -1076,15 +989,11 @@
 
               <form class="mb-[30px] flex w-full">
                 <div class="relative">
-                  <label for="newsletterEmail" class="sr-only"
-                    >Your email address</label
-                  >
                   <input
                     id="newsletterEmail"
                     type="email"
                     name="email"
                     placeholder="Enter your mail"
-                    autocomplete="email"
                     class="h-[45px] w-full rounded-[5px] border border-[rgba(0,0,0,0)] bg-white px-[16px] py-[10px] pr-[50px] font-sans text-[16px] outline-none placeholder:text-body shadow-none lg:pt-[9px] xxl:pt-[10px] xxl:w-[288.5px]"
                   />
 
@@ -1118,26 +1027,25 @@
                 class="flex [&>a]:inline-block [&>a]:h-[40px] [&>a]:w-[40px] [&>a]:flex-[0_0_auto] [&>a]:mr-[10px] [&>a]:rounded-[31px] [&>a]:bg-body [&>a]:text-center [&>a]:leading-[43px] [&>a]:text-white"
               >
                 <a href="#" aria-label="Facebook"
-                  ><i class="fa-brands fa-facebook-f" aria-hidden="true"></i
+                  ><i class="fa-brands fa-facebook-f"></i
                 ></a>
                 <a href="#" aria-label="Twitter"
-                  ><i class="fa-brands fa-twitter" aria-hidden="true"></i
+                  ><i class="fa-brands fa-twitter"></i
                 ></a>
                 <a href="#" aria-label="Instagram"
-                  ><i class="fa-brands fa-instagram" aria-hidden="true"></i
+                  ><i class="fa-brands fa-instagram"></i
                 ></a>
                 <a href="#" aria-label="Pinterest"
-                  ><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i
+                  ><i class="fa-brands fa-pinterest-p"></i
                 ></a>
                 <a href="#" aria-label="YouTube"
-                  ><i class="fa-brands fa-youtube" aria-hidden="true"></i
+                  ><i class="fa-brands fa-youtube"></i
                 ></a>
               </div>
             </div>
           </div>
           <nav
             class="w-full px-3 sm:w-1/2 lg:w-[177px] xl:w-[16%] xxl:px-[12.5px]"
-            aria-label="Quick links"
           >
             <div class="mb-10">
               <h2 class="mb-[25px] text-xl font-bold leading-[1.1] text-white">
@@ -1203,7 +1111,6 @@
                     <span class="mr-[15px] flex flex-none items-start"
                       ><i
                         class="fa-sharp fa-solid fa-phone text-white relative top-[4px]"
-                        aria-hidden="true"
                       ></i
                     ></span>
                     <span
@@ -1247,7 +1154,6 @@
           </div>
           <nav
             class="w-full px-3 sm:w-1/2 lg:w-[210px] xl:w-[25.04%] xxl:px-[12.5px]"
-            aria-label="Utility pages"
           >
             <div class="mb-10">
               <h2 class="mb-[25px] text-xl font-bold leading-[1.1] text-white">
@@ -1272,24 +1178,24 @@
           >Copyright <a href="#">©Tourex</a> | All Right Reserved</span
         >
       </div>
+
+      <button
+        id="backToTop"
+        type="button"
+        data-show="false"
+        class="invisible fixed bottom-[15px] right-[15px] z-[99] flex h-[35px] w-[35px] translate-y-5 cursor-pointer items-center justify-center rounded-full bg-primary text-sm text-white opacity-0 shadow-[0_12px_12px_-8px_rgba(2,6,21,0.35)] transition-all duration-300 data-[show=true]:visible data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:bottom-[30px] sm:right-[30px] sm:h-[50px] sm:w-[50px] sm:text-base xxl:right-[50px] lg:right-[25px]"
+      >
+        <i
+          class="fa-sharp fa-regular fa-arrow-up font-bold relative -top-[1px] md:top-[0px]"
+          aria-hidden="true"
+        ></i>
+      </button>
+
+      <div
+        id="offcanvasOverlay"
+        class="invisible fixed inset-0 z-[2] bg-[rgb(5_5_5_/_76%)] opacity-0 transition-all duration-[400ms] ease-in-out data-[show=true]:visible data-[show=true]:opacity-100 xl:z-[1]"
+        data-show="false"
+      ></div>
     </footer>
-    <button
-      id="backToTop"
-      type="button"
-      data-show="false"
-      class="invisible fixed bottom-[15px] right-[15px] z-[99] flex h-[35px] w-[35px] translate-y-5 cursor-pointer items-center justify-center rounded-full bg-primary text-sm text-white opacity-0 shadow-[0_12px_12px_-8px_rgba(2,6,21,0.35)] transition-all duration-300 data-[show=true]:visible data-[show=true]:translate-y-0 data-[show=true]:opacity-100 sm:bottom-[30px] sm:right-[30px] sm:h-[50px] sm:w-[50px] sm:text-base xxl:right-[50px] lg:right-[25px]"
-      aria-label="Back to top"
-    >
-      <i
-        class="fa-sharp fa-regular fa-arrow-up font-bold relative -top-[1px] md:top-[0px]"
-        aria-hidden="true"
-      ></i>
-    </button>
-    <div
-      id="offcanvasOverlay"
-      class="invisible fixed inset-0 z-[999] bg-[rgb(5_5_5_/_76%)] opacity-0 transition-all duration-[400ms] ease-in-out data-[show=true]:visible data-[show=true]:opacity-100 xl:z-[1]"
-      data-show="false"
-      aria-hidden="true"
-    ></div>
   </body>
 </html>
